@@ -33,7 +33,7 @@
                         <RadioButton x:Name="InfoTab" Content="Info" IsChecked="True" Style="{StaticResource PivotRadioButtonStyle}" />
                         <RadioButton x:Name="EmployeesTab" Content="Employees" Style="{StaticResource PivotRadioButtonStyle}" />
                         <RadioButton x:Name="DisputesTab" Content="Disputes" Style="{StaticResource PivotRadioButtonStyle}" />
-                        <RadioButton x:Name="PositionsTab" Content="Positions" Style="{StaticResource PivotRadioButtonStyle}" />
+                        <RadioButton x:Name="ComboBoxTab" Content="ComboBox" Style="{StaticResource PivotRadioButtonStyle}" />
                     </StackPanel>
                 </ScrollViewer>
 
@@ -123,8 +123,8 @@
                         <TextBox Text="Just a text box" />
                     </StackPanel>
 
-                    <StackPanel x:Name="PositionsPanel" VerticalAlignment="Stretch" Margin="0,10,0,0" MaxWidth="400" x:Load="{x:Bind PositionsTab.IsChecked.Value, Mode=OneWay}" Visibility="{x:Bind PositionsTab.IsChecked, Mode=OneWay}">
-                        
+                    <StackPanel x:Name="ComboBoxPanel" VerticalAlignment="Stretch" Margin="0,10,0,0" MaxWidth="400" Visibility="{x:Bind ComboBoxTab.IsChecked, Mode=OneWay}">
+                        <ComboBox ItemsSource="{x:Bind ComboBoxItems}" Style="{StaticResource FilterComboBoxStyle}"/>
                     </StackPanel>
                 </Grid>
             </StackPanel>

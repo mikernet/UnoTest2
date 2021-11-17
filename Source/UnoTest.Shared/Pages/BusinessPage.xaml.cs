@@ -23,6 +23,14 @@ namespace UnoTest.Pages
     {
         public Business Model { get; set; }
 
+        public List<string> ComboBoxItems { get; } = new List<string>
+        {
+            "Item 1",
+            "Item 2",
+            "Item 3",
+            "Item 4",
+        };
+
         public BusinessPage()
         {
             InitializeComponent();
