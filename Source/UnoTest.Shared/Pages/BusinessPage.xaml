@@ -116,7 +116,11 @@
                     </StackPanel>
 
                     <StackPanel x:Name="DisputesPanel" MaxWidth="450" x:Load="{x:Bind DisputesTab.IsChecked.Value, Mode=OneWay}" Visibility="{x:Bind DisputesTab.IsChecked, Mode=OneWay}">
-                        <Button Content="Test Dialog" Click="OnTestDialogClick"/>
+                        <Button Content="Test Dialog" Click="OnTestDialogClick" Style="{StaticResource ActionButton}"/>
+                        <TextBox Text="Just a text box" />
+                        <TextBox Text="Just a text box" />
+                        <TextBox Text="Just a text box" />
+                        <TextBox Text="Just a text box" />
                     </StackPanel>
 
                     <StackPanel x:Name="PositionsPanel" VerticalAlignment="Stretch" Margin="0,10,0,0" MaxWidth="400" x:Load="{x:Bind PositionsTab.IsChecked.Value, Mode=OneWay}" Visibility="{x:Bind PositionsTab.IsChecked, Mode=OneWay}">
