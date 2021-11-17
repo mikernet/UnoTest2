@@ -1,0 +1,68 @@
+﻿<UserControl
+    x:Class="UnoTest.Controls.UserInfoControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:UnoTest.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="300"
+    d:DesignWidth="400">
+    
+    <StackPanel>
+        <StackPanel.Resources>
+            <Style TargetType="TextBlock" BasedOn="{StaticResource ValueHeadingTextBlockStyle}"/>
+        </StackPanel.Resources>
+
+        <TextBlock Text="FIRST NAME"/>
+        <TextBox />
+
+        <TextBlock Text="LAST NAME"/>
+        <TextBox x:Name="LastNameBox" />
+        <StackPanel x:Name="DescriptionContainer" Spacing="10" >
+            <TextBlock Text="DESCRIPTION" />
+            <TextBox Style="{StaticResource MultilineTextBoxStyle}" />
+        </StackPanel>
+
+        <TextBlock Text="PHONE NUMBER (CELL)"/>
+        <TextBox  InputScope="TelephoneNumber"/>
+        <TextBlock Text="ADDRESS"/>
+
+        <TextBox/>
+        <TextBlock Text="COUNTRY"/>
+
+        <ComboBox Name="CountryBox" SelectedValuePath="CountryCode">
+            <!-- Fix for https://github.com/unoplatform/uno/issues/6284-->
+            <ComboBox.Resources>
+                <Style TargetType="TextBlock"/>
+            </ComboBox.Resources>
+        </ComboBox>
+
+        <TextBlock Text="STATE/PROVINCE"/>
+        <ComboBox Name="RegionBox">
+            <!-- Fix for https://github.com/unoplatform/uno/issues/6284-->
+            <ComboBox.Resources>
+                <Style TargetType="TextBlock"/>
+            </ComboBox.Resources>
+        </ComboBox>
+
+        <TextBlock Text="CITY"/>
+        <TextBox/>
+
+        <TextBlock Text="POSTAL/ZIP CODE"/>
+        <TextBox/>
+
+        <TextBlock Text="EMAIL"/>
+        <TextBox Name="EmailBox"/>
+
+        <TextBlock Text="CONFIRM EMAIL"/>
+        <TextBox Name="ConfirmEmailBox" IsSpellCheckEnabled="false" InputScope="EmailSmtpAddress"/>
+
+        <StackPanel x:Name="PasswordContainer" Spacing="10">
+            <TextBlock Text="PASSWORD" />
+            <PasswordBox Name="PasswordBox" Password="{Binding Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBlock Text="CONFIRM PASSWORD" />
+            <PasswordBox Name="ConfirmPasswordBox"/>
+        </StackPanel>
+    </StackPanel>
+</UserControl>
