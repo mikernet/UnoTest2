@@ -1,0 +1,55 @@
+<Application
+    x:Class="UnoTest.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:UnoTest"
+    RequestedTheme="Light">
+
+    <Application.Resources>
+        <ResourceDictionary>
+            <!-- No apparent effect in Uno -->
+            <!--<Thickness x:Key="ContentDialogPadding">200</Thickness>-->
+
+            <!-- Colors and Color Overrides -->
+
+            <Color x:Key="SystemAccentColor">#0078D7</Color>
+
+            <Color x:Key="ContentIconColor">#666666</Color>
+
+            <SolidColorBrush x:Key="TextControlBackgroundDisabled">#FFFFFF</SolidColorBrush>
+            <SolidColorBrush x:Key="ComboBoxBackgroundDisabled">#FFFFFF</SolidColorBrush>
+
+            <SolidColorBrush x:Key="ButtonForegroundPointerOver">White</SolidColorBrush>
+            <SolidColorBrush x:Key="ButtonForegroundPressed">White</SolidColorBrush>
+
+            <SolidColorBrush x:Key="ButtonBackgroundPointerOver">#0064B5</SolidColorBrush>
+            <SolidColorBrush x:Key="ButtonBackgroundPressed">#004985</SolidColorBrush>
+
+            <!-- Fonts -->
+
+            <FontFamily x:Key="LogoFontFamily">/Assets/Fonts/SourceSerifPro-Bold.otf#Source Serif Pro</FontFamily>
+            <FontFamily x:Key="UIFontFamily">/Assets/Fonts/selawk.ttf#Selawik</FontFamily>
+            <FontFamily x:Key="ContentControlThemeFontFamily">/Assets/Fonts/selawk.ttf#Selawik</FontFamily>
+
+            <x:Double x:Key="ContentDialogMaxWidth">9999</x:Double>
+
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Styles/BorderStyles.xaml" />
+                <ResourceDictionary Source="/Styles/TextBlockStyles.xaml" />
+                <ResourceDictionary Source="/Styles/TextControlStyles.xaml" />
+                <ResourceDictionary Source="/Styles/TextBoxStyles.xaml" />
+                <ResourceDictionary Source="/Styles/ComboBoxStyles.xaml" />
+                <ResourceDictionary Source="/Styles/DatePickerStyles.xaml" />
+                <ResourceDictionary Source="/Styles/PasswordBoxStyles.xaml" />
+                <ResourceDictionary Source="/Styles/ButtonStyles.xaml" />
+                <ResourceDictionary Source="/Styles/ToggleButtonStyles.xaml" />
+                <ResourceDictionary Source="/Styles/PivotStyles.xaml" />
+                <ResourceDictionary Source="/Styles/HyperlinkButtonStyles.xaml" />
+                <ResourceDictionary Source="/Styles/RadioButtonStyles.xaml" />
+                <ResourceDictionary Source="/Styles/ScrollViewerStyles.xaml" />
+                <ResourceDictionary Source="/Styles/DialogStyles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+
+</Application>

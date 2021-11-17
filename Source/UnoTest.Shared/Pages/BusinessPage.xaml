@@ -1,0 +1,129 @@
+﻿<Page
+    x:Class="UnoTest.Pages.BusinessPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:c="using:UnoTest.Converters"
+    xmlns:local="using:UnoTest.Pages"
+    xmlns:controls="using:UnoTest.Controls"
+    xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
+    xmlns:models="using:UnoTest.Models"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+    <Page.Resources>
+        <ResourceDictionary Source="PageStyles.xaml"/>
+    </Page.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Border Background="#0078D7" Height="54" Padding="11">
+            <Viewbox>
+                <TextBlock Text="{x:Bind Model.Name}" FontSize="48" FontWeight="Bold" Foreground="White" HorizontalAlignment="Center"/>
+            </Viewbox>
+        </Border>
+
+        <ScrollViewer x:Name="MainScroller" Grid.Row="1" Style="{StaticResource ProfileScrollViewerStyle}" Visibility="{x:Bind c:Convert.NullToCollapsed(Model), Mode=OneWay}">
+            <StackPanel Style="{StaticResource ProfileContainerStyle}">
+                <ScrollViewer Style="{StaticResource PivotScrollViewerStyle}">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                        <RadioButton x:Name="InfoTab" Content="Info" IsChecked="True" Style="{StaticResource PivotRadioButtonStyle}" />
+                        <RadioButton x:Name="EmployeesTab" Content="Employees" Style="{StaticResource PivotRadioButtonStyle}" />
+                        <RadioButton x:Name="DisputesTab" Content="Disputes" Style="{StaticResource PivotRadioButtonStyle}" />
+                        <RadioButton x:Name="PositionsTab" Content="Positions" Style="{StaticResource PivotRadioButtonStyle}" />
+                    </StackPanel>
+                </ScrollViewer>
+
+                <Grid Margin="20,0">
+                    <Grid.Resources>
+                        <Style TargetType="Button" BasedOn="{StaticResource TransparentButtonStyle}" />
+                    </Grid.Resources>
+
+                    <StackPanel x:Name="InfoPanel" MaxWidth="400" x:Load="{x:Bind InfoTab.IsChecked.Value, Mode=OneWay}" Visibility="{x:Bind InfoTab.IsChecked, Mode=OneWay}">
+                        <TextBlock Text="TYPE" Style="{StaticResource ValueHeadingTextBlockStyle}"/>
+                        <Border Style="{StaticResource ValueBorderStyle}">
+                            <TextBlock Text="{x:Bind Model.BusinessType}" Style="{StaticResource ValueTextBlockStyle}"/>
+                        </Border>
+
+                        <TextBlock Text="PHONE" Style="{StaticResource ValueHeadingTextBlockStyle}"/>
+                        <Border Style="{StaticResource ValueBorderStyle}">
+                            <HyperlinkButton NavigateUri="{x:Bind c:Convert.StringToPhoneUri(Model.Phone)}">
+                                <TextBlock Text="{x:Bind Model.Phone}"/>
+                            </HyperlinkButton>
+                        </Border>
+
+                        <TextBlock Text="EMAIL" Style="{StaticResource ValueHeadingTextBlockStyle}"/>
+                        <Border Style="{StaticResource ValueBorderStyle}">
+                            <HyperlinkButton NavigateUri="{x:Bind c:Convert.StringToEmailUri(Model.Email)}">
+                                <TextBlock Text="{x:Bind Model.Email}"/>
+                            </HyperlinkButton>
+                        </Border>
+
+                        <StackPanel Visibility="{x:Bind c:Convert.NullOrWhiteSpaceToCollapsed(Model.Website)}">
+                            <TextBlock Text="WEBSITE" Style="{StaticResource ValueHeadingTextBlockStyle}"/>
+                            <Border Style="{StaticResource ValueBorderStyle}">
+                                <HyperlinkButton NavigateUri="{x:Bind c:Convert.StringToWebsiteUri(Model.Website)}" VerticalAlignment="Center">
+                                    <TextBlock Text="{x:Bind Model.Website}"/>
+                                </HyperlinkButton>
+                            </Border>
+                        </StackPanel>
+
+                        <TextBlock Text="ADDRESS" Style="{StaticResource ValueHeadingTextBlockStyle}"/>
+                        <Border Style="{StaticResource ValueBorderStyle}">
+                            <StackPanel>
+                                <TextBlock Text="{x:Bind Model.Address}" Style="{StaticResource ValueTextBlockStyle}"/>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="{x:Bind Model.City}" Style="{StaticResource ValueTextBlockStyle}"/>
+                                    <TextBlock Text=", &#xfeff;" Style="{StaticResource ValueTextBlockStyle}"/>
+                                    <TextBlock Text="{x:Bind Model.Region}" Style="{StaticResource ValueTextBlockStyle}"/>
+                                    <TextBlock Text=", &#xfeff;" Style="{StaticResource ValueTextBlockStyle}"/>
+                                    <TextBlock Text="{x:Bind Model.PostalCode}" Style="{StaticResource ValueTextBlockStyle}"/>
+                                </StackPanel>
+                                <TextBlock Text="{x:Bind Model.Country}" Style="{StaticResource ValueTextBlockStyle}"/>
+                            </StackPanel>
+                        </Border>
+                    </StackPanel>
+
+                    <StackPanel x:Name="EmployeesPanel" VerticalAlignment="Stretch" Margin="0,10,0,0" MaxWidth="400" x:Load="{x:Bind EmployeesTab.IsChecked.Value, Mode=OneWay}" Visibility="{x:Bind EmployeesTab.IsChecked, Mode=OneWay}">
+                        <StackPanel Orientation="Horizontal" Margin="0,10,0,5" HorizontalAlignment="Center">
+                            <StackPanel Orientation="Horizontal">
+                                <Border Background="{StaticResource ActionBackground}" Padding="10,0">
+                                    <FontIcon x:Name="CheckGlyph" FontFamily="{ThemeResource SymbolThemeFontFamily}" Foreground="{StaticResource ActionForeground}" FontSize="20" Glyph="&#xE721;"/>
+                                </Border>
+                                <TextBox x:Name="EmployeeFilter" MinWidth="230" Style="{StaticResource FilterTextBoxStyle}"/>
+                            </StackPanel>
+                        </StackPanel>
+
+                        <!--<muxc:ItemsRepeater x:Name="EmployeeRepeater" ItemsSource="{x:Bind Business.Employees, Mode=OneWay}" Margin="0,15,0,0">-->
+                        <muxc:ItemsRepeater x:Name="EmployeeRepeater" ItemsSource="{x:Bind FilterEmployees(Model.Employees, EmployeeFilter.Text), Mode=OneWay}" Margin="0,15,0,0">
+                            <DataTemplate x:DataType="models:Employee">
+                                <Border Style="{StaticResource ValueBorderStyle}">
+                                    <Button Tag="{x:Bind}" Click="OnEmployeeProfileClick">
+                                        <StackPanel Orientation="Horizontal" Spacing="10">
+                                            <controls:UserImage Size="42" Initials="{x:Bind Initials}" ImageId="{x:Bind ProfileImageId}" />
+                                            <StackPanel>
+                                                <TextBlock Text="{x:Bind Name}" Style="{StaticResource TransparentButtonHeadingStyle}"/>
+                                                <TextBlock Text="{x:Bind ProfileImageId}"/>
+                                            </StackPanel>
+                                        </StackPanel>
+                                    </Button>
+                                </Border>
+                            </DataTemplate>
+                        </muxc:ItemsRepeater>
+                    </StackPanel>
+
+                    <StackPanel x:Name="DisputesPanel" MaxWidth="450" x:Load="{x:Bind DisputesTab.IsChecked.Value, Mode=OneWay}" Visibility="{x:Bind DisputesTab.IsChecked, Mode=OneWay}">
+                        <Button Content="Test Dialog" Click="OnTestDialogClick"/>
+                    </StackPanel>
+
+                    <StackPanel x:Name="PositionsPanel" VerticalAlignment="Stretch" Margin="0,10,0,0" MaxWidth="400" x:Load="{x:Bind PositionsTab.IsChecked.Value, Mode=OneWay}" Visibility="{x:Bind PositionsTab.IsChecked, Mode=OneWay}">
+                        
+                    </StackPanel>
+                </Grid>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</Page>

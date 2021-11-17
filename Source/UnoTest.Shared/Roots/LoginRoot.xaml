@@ -1,0 +1,80 @@
+﻿<Page
+    x:Class="UnoTest.Roots.LoginRoot"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:UnoTest.Roots"
+    xmlns:toolkit="using:Uno.UI.Toolkit"
+    xmlns:c="using:UnoTest.Converters"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+
+    <ScrollViewer toolkit:VisibleBoundsPadding.PaddingMask="All">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" MinHeight="140" />
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <Border Background="White">
+                <Image Source="../Assets/Logo-lightbg.png" MaxWidth="180" Margin="20,20,20,20"/>
+            </Border>
+
+            <StackPanel Grid.Row="1" MaxWidth="450" Margin="10,10,10,0">
+                <ScrollViewer Style="{StaticResource PivotScrollViewerStyle}">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                        <RadioButton x:Name="LoginTab" Content="Login" IsChecked="True" FontSize="28" Style="{StaticResource PivotRadioButtonStyle}" />
+                        <RadioButton x:Name="SignUpTab" Content="Sign Up" FontSize="28" Style="{StaticResource PivotRadioButtonStyle}" />
+                    </StackPanel>
+                </ScrollViewer>
+
+                <Grid Margin="8,8,8,22" MinHeight="500">
+                    <StackPanel Spacing="10" Visibility="{x:Bind LoginTab.IsChecked, Mode=OneWay}">
+                        <!--<controls:LoginControl x:Name="Login" Foreground="#555555" Margin="0,15,0,0"/>-->
+
+                        <CheckBox x:Name="RememberMeBox">
+                            <TextBlock Text="REMEMBER ME" FontSize="16"/>
+                        </CheckBox>
+
+                        <TextBlock x:Name="LoginError" Foreground="Red" FontSize="17" HorizontalAlignment="Center" TextWrapping="Wrap" />
+                        <Button Content="LOGIN" MaxWidth="250" HorizontalAlignment="Stretch" Click="OnLoginClick"/>
+
+                        <HyperlinkButton FontSize="18" HorizontalAlignment="Center" Margin="0,20,0,0">
+                            <TextBlock Text="I forgot my password"/>
+                        </HyperlinkButton>
+                        <HyperlinkButton NavigateUri="https://www.iratio.ca/privacy-policy" FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,20">
+                            <TextBlock Text="Privacy Policy"/>
+                        </HyperlinkButton>
+                    </StackPanel>
+
+                    <StackPanel Spacing="10" Visibility="{x:Bind SignUpTab.IsChecked, Mode=OneWay}">
+                        <!--<controls:UserInfoControl x:Name="SignUp" Margin="0,15,0,0"/>-->
+
+                        <CheckBox x:Name="PrivacyPolicyAgreeBox" Margin="0,20,0,0">
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock>I have read and agree to the</TextBlock>
+                                <HyperlinkButton NavigateUri="https://www.iratio.ca/privacy-policy" Padding="0">
+                                    <Border>
+                                        <TextBlock Text=" Privacy Policy"/>
+                                    </Border>
+                                </HyperlinkButton>
+                            </StackPanel>
+                        </CheckBox>
+
+                        <TextBlock x:Name="SignUpError" Foreground="Red" FontSize="17" HorizontalAlignment="Center" TextWrapping="Wrap" />
+                        <Button Content="Sign Up" MaxWidth="250" HorizontalAlignment="Stretch"/>
+                    </StackPanel>
+                </Grid>
+            </StackPanel>
+
+            <Border Grid.RowSpan="2" Background="#77FFFFFF" Visibility="{x:Bind c:Convert.FalseToVisible(IsEnabled), Mode=OneWay}">
+                <Border Background="#77FFFFFF" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <ProgressRing Width="50" Height="50" IsActive="true"/>
+                </Border>
+            </Border>
+        </Grid>
+    </ScrollViewer>
+</Page>

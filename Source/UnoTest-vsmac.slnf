@@ -1,0 +1,21 @@
+{
+  "solution": {
+    "path": "UnoTest.sln",
+    "projects": [
+		"UnoTest.Shared\\UnoTest.Shared.shproj",
+
+		"UnoTest.Droid\\UnoTest.Droid.csproj",
+
+		"UnoTest.iOS\\UnoTest.iOS.csproj",
+
+
+		"UnoTest.Wasm\\UnoTest.Wasm.csproj",
+
+		"UnoTest.macOS\\UnoTest.macOS.csproj",
+
+		"UnoTest.Skia.Gtk\\UnoTest.Skia.Gtk.csproj",
+
+		"UnoTest.Skia.Linux.FrameBuffer\\UnoTest.Skia.Linux.FrameBuffer.csproj",
+    ]
+  }
+}
