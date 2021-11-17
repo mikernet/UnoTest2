@@ -177,7 +177,8 @@ namespace UnoTest
                 // builder.AddFilter("Uno.Foundation.WebAssemblyRuntime", LogLevel.Debug );
             });
 
-            global::Uno.Extensions.LogExtensionPoint.AmbientLoggerFactory = factory;
+            // TODO: LogExtensionPoint not available in 4.x-dev.latest release?
+            // global::Uno.Extensions.LogExtensionPoint.AmbientLoggerFactory = factory;
         }
     }
 }
