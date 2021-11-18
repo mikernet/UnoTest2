@@ -18,6 +18,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Behaviors\Actions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Behaviors\EnterAction.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\LoginControl.xaml.cs">
       <DependentUpon>LoginControl.xaml</DependentUpon>
     </Compile>
@@ -28,6 +30,12 @@
       <DependentUpon>UserInfoControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Converters\Convert.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Dialogs\BusinessDialog1.xaml.cs">
+      <DependentUpon>BusinessDialog1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Dialogs\BusinessDialog2.xaml.cs">
+      <DependentUpon>BusinessDialog2.xaml</DependentUpon>
+    </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Dialogs\TestDialog.xaml.cs">
       <DependentUpon>TestDialog.xaml</DependentUpon>
     </Compile>
@@ -56,6 +64,18 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="$(MSBuildThisFileDirectory)Controls\UserInfoControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Dialogs\BusinessDialog1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Dialogs\BusinessDialog2.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Dialogs\DialogStyles.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

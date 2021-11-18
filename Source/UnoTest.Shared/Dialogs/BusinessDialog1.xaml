@@ -1,0 +1,40 @@
+﻿<ContentDialog
+    x:Class="UnoTest.Dialogs.BusinessDialog1"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:UnoTest.Dialogs"
+    xmlns:behaviors="using:UnoTest.Behaviors"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="TextBoxes inside ContentControl"
+    PrimaryButtonText="OK"
+    SecondaryButtonText="Cancel"
+    PrimaryButtonClick="ContentDialog_PrimaryButtonClick"
+    SecondaryButtonClick="ContentDialog_SecondaryButtonClick"
+    Style="{StaticResource DialogStyle}">
+    <ContentDialog.Resources>
+        <ResourceDictionary Source="DialogStyles.xaml"/>
+    </ContentDialog.Resources>
+
+    <ScrollViewer x:Name="Root">
+        <ContentControl>
+            <StackPanel MaxWidth="400">
+                <StackPanel.Resources>
+                    <Style TargetType="TextBlock" BasedOn="{StaticResource ValueHeadingTextBlockStyle}"/>
+                </StackPanel.Resources>
+                <Rectangle Width="400"/>
+                <TextBlock Text="BUSINESS NAME"/>
+                <TextBox behaviors:Actions.Enter="Next"/>
+                <TextBlock Text="BUSINESS TYPE"/>
+                <TextBox behaviors:Actions.Enter="Next"/>
+                <TextBlock Text="PHONE NUMBER"/>
+                <TextBox InputScope="TelephoneNumber" behaviors:Actions.Enter="Next" />
+                <TextBlock Text="EMAIL"/>
+                <TextBox InputScope="EmailSmtpAddress" behaviors:Actions.Enter="Next"/>
+                <TextBlock Text="WEBSITE (OPTIONAL)"/>
+                <TextBox InputScope="Url" behaviors:Actions.Enter="Next" />
+                <TextBlock Text="ADDRESS"/>
+                <TextBox behaviors:Actions.Enter="Done"/>
+            </StackPanel>
+        </ContentControl>
+    </ScrollViewer>
+</ContentDialog>

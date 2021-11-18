@@ -11,7 +11,9 @@
     </Page.Resources>
 
     <StackPanel HorizontalAlignment="Center">
-        <Button Content="Business Page" HorizontalAlignment="Stretch" Click="OnBusinessClick" />
-        <Button Content="Test Dialog" HorizontalAlignment="Stretch" Click="OnTestDialogClick" />
+        <Button Content="BusinessPage" HorizontalAlignment="Stretch" Click="OnBusinessClick" />
+        <Button Content="TestDialog" HorizontalAlignment="Stretch" Click="OnTestDialogClick" />
+        <Button Content="BusinessDialog1" HorizontalAlignment="Stretch" Click="OnBusinessDialog1Click" />
+        <Button Content="BusinessDialog2" HorizontalAlignment="Stretch" Click="OnBusinessDialog2Click" />
     </StackPanel>
 </Page>

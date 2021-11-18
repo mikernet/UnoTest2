@@ -32,5 +32,15 @@ namespace UnoTest.Pages
         {
             await new TestDialog().ShowAsync();
         }
+
+        private async void OnBusinessDialog1Click(object sender, RoutedEventArgs e)
+        {
+            await new BusinessDialog1().ShowAsync();
+        }
+
+        private async void OnBusinessDialog2Click(object sender, RoutedEventArgs e)
+        {
+            await new BusinessDialog2().ShowAsync();
+        }
     }
 }
