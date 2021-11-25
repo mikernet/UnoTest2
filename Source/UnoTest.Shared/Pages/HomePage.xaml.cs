@@ -28,6 +28,11 @@ namespace UnoTest.Pages
             Frame.Navigate(typeof(BusinessPage));
         }
 
+        private void OnModelAfterNavigateClick(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(ModelAfterNavigatePage), 12345);
+        }
+
         private async void OnTestDialogClick(object sender, RoutedEventArgs e)
         {
             await new TestDialog().ShowAsync();

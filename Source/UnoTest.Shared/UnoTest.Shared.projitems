@@ -39,13 +39,18 @@
     <Compile Include="$(MSBuildThisFileDirectory)Dialogs\TestDialog.xaml.cs">
       <DependentUpon>TestDialog.xaml</DependentUpon>
     </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Models\BindableBase.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Business.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Employee.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\AfterNavigateModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Pages\BusinessPage.xaml.cs">
       <DependentUpon>BusinessPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Pages\HomePage.xaml.cs">
       <DependentUpon>HomePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Pages\ModelAfterNavigatePage.xaml.cs">
+      <DependentUpon>ModelAfterNavigatePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Roots\LoginRoot.xaml.cs">
       <DependentUpon>LoginRoot.xaml</DependentUpon>
@@ -88,6 +93,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="$(MSBuildThisFileDirectory)Pages\HomePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Pages\ModelAfterNavigatePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
