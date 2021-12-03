@@ -33,6 +33,11 @@ namespace UnoTest.Pages
             Frame.Navigate(typeof(ModelAfterNavigatePage), 12345);
         }
 
+        private void OnDpModelAfterNavigateClick(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(DpModelAfterNavigate), 12345);
+        }
+
         private async void OnTestDialogClick(object sender, RoutedEventArgs e)
         {
             await new TestDialog().ShowAsync();

@@ -13,6 +13,7 @@
     <StackPanel HorizontalAlignment="Center" Spacing="10" Margin="0,40,0,0">
         <Button Content="Business Page" HorizontalAlignment="Stretch" Click="OnBusinessClick" />
         <Button Content="Model After Navigate" HorizontalAlignment="Stretch" Click="OnModelAfterNavigateClick" />
+        <Button Content="DP Model After Navigate" HorizontalAlignment="Stretch" Click="OnDpModelAfterNavigateClick" />
         <Button Content="Test Dialog" HorizontalAlignment="Stretch" Click="OnTestDialogClick" />
         <Button Content="Business Dialog 1" HorizontalAlignment="Stretch" Click="OnBusinessDialog1Click" />
         <Button Content="Business Dialog 2" HorizontalAlignment="Stretch" Click="OnBusinessDialog2Click" />

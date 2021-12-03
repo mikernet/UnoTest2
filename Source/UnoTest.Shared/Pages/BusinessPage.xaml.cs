@@ -48,8 +48,9 @@ namespace UnoTest.Pages
 
         private async void OnEmployeeProfileClick(object sender, RoutedEventArgs e)
         {
-            var employee = (Employee)((FrameworkElement)sender).Tag;
-            await new MessageDialog($"Employee {employee.Name} clicked.").ShowAsync();
+            //var employee = (Employee)((FrameworkElement)sender).Tag;
+            //await new MessageDialog($"Employee {employee.Name} clicked.").ShowAsync();
+            await new TestDialog().ShowAsync();
         }
 
         private async void OnTestDialogClick(object sender, RoutedEventArgs e)
