@@ -64,6 +64,10 @@ namespace UnoTest
             _window = Windows.UI.Xaml.Window.Current;
 #endif
 
+#if __ANDROID__
+            //Uno.UI.FeatureConfiguration.Popup.UseNativePopup = false;
+#endif
+
             var rootFrame = _window.Content as Frame;
 
             // Do not repeat app initialization when the Window already has content,
