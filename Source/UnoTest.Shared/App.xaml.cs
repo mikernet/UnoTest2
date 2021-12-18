@@ -65,7 +65,7 @@ namespace UnoTest
 #endif
 
 #if __ANDROID__
-            //Uno.UI.FeatureConfiguration.Popup.UseNativePopup = false;
+            Uno.UI.FeatureConfiguration.Popup.UseNativePopup = false;
 #endif
 
             var rootFrame = _window.Content as Frame;
